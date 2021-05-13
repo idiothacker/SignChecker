@@ -1,6 +1,6 @@
 import nmap, argparse, csv, concurrent.futures
 
-parser = argparse.ArgumentParser(description="Example: \n\npython3 ScanChecker.py -i ip_addresses.txt -o results.csv")
+parser = argparse.ArgumentParser(description="Example: \n\npython3 SignChecker.py -i ip_addresses.txt -o results.csv")
 parser.add_argument("-i", metavar="--infile", help="The location of your input file, 1 IP per line. (-i ips.txt)", required=True)
 parser.add_argument("-o", metavar="--outfile", help="The name of the output csv file (-o results.csv)", required=True)
 
