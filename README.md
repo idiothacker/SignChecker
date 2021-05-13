@@ -1,5 +1,5 @@
 # SignChecker
-SignChecker is a simple python script that uses NMAP NSE SMB scripts to check for SMB signing an outputs the results to a CSV file.
+SignChecker is a simple Python script that uses NMAP NSE SMB scripts to check for SMB signing and outputs the results of IPs where SMB Signing is disabled to a CSV file.
 
 ## Installation
 Clone the repository, navigate into the `SignChecker` folder and then run the following command.
