@@ -14,7 +14,7 @@ scanner = nmap.PortScanner()
 def scan(ip,host_list):
     res = {
         "IP Address": ip,
-        "SMB Signing": "True"
+        "SMB Signing": ""
     }
 
     current = host_list.index(ip) + 1
@@ -22,9 +22,12 @@ def scan(ip,host_list):
 
     try:
         print(f"Checking {ip} for SMB Signing. [{current}/{total}]")
-        check = scanner.scan(hosts=str(ip),arguments="-Pn -p 445 --script smb-security-mode.nse")
+        check = scanner.scan(hosts=str(ip),arguments="-Pn -p 445 --script smb2-security-mode.nse")
         if ("hostscript" in str(check)) and ("disabled" in str(check)):
-            res["SMB Signing"] = "False"
+            res["SMB Signing"] = "Disabled"
+            return res
+        elif ("hostscript" in str(check)) and ("enabled but not required" in str(check)):
+            res["SMB Signing"] = "Enabled - Not Required"
             return res
         else:
             return None
